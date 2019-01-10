@@ -7,5 +7,5 @@ makeKirbyDancer.prototype.constructor = makeKirbyDancer;
 
 makeKirbyDancer.prototype.step = function() {
   Dancer.prototype.step.call(this, this.time);
-  this.$node.toggle();
+  // this.$node.toggle();
 };

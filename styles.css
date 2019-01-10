@@ -1,5 +1,6 @@
 body, html{
   height:100%;
+  width:100%;
 }
 body{
   margin: 0px;
@@ -7,6 +8,7 @@ body{
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
+  position: fixed;
   font-size: 18px;
 } 
 body, a:link, a:visited, a:active{
@@ -23,12 +25,21 @@ body, a:link, a:visited, a:active{
 .title{
   background-color: #777;
 }
-.dancer{
-  border:10px solid red;
-  border-radius:10px;
+.blinky{
   position:absolute;
+  content: url(img/SmashBall.png);
+  height: 90px;
+  width: 90px;
 }
 
 .kirby{
-  background-image: url(img/Kirby.png);
+  position: absolute;
+  content: url(img/Kirby.png);
+  height: 105px;
+  width: 105px;
+  -webkit-animation:spin 0.5s linear infinite;
+  -moz-animation:spin 0.5s linear infinite;
+  animation:spin 0.5s linear infinite;
 }
+
+@-webkit-keyframes spin { 100% { -webkit-transform: rotate(360deg); } }

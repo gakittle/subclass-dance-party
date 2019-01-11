@@ -39,5 +39,61 @@ $(document).ready(function() {
       dancer.animate({top: t, left: l}, 1000);
     }
   });
+
+  $('.characterButton').on('click', function(event) {
+    var dancerMakerFunctionName = $(this).data('dancer-maker-function-name');
+    var dancerMakerFunction = window[dancerMakerFunctionName];
+
+    var dancer = new dancerMakerFunction(
+      -200,
+      -200,
+      Math.random() * 1000
+    );
+    var fighter = dancer.$node;
+    $('body').append(fighter);
+    for (var i = 0; i < window.dancers.length; i++) {
+      if (window.dancers[i].$node.hasClass('blinky')) {
+        // get position of nearest smashball
+        var positions = window.dancers[i].$node.attr('style').split(': ');
+        var top = positions[1].split('.');
+        var topPosition = top[0];
+        var bottom = positions[2].split('.');
+        var bottomPosition = bottom[0];
+        // animate moving there
+        fighter.animate({top: topPosition, left: bottomPosition}, 1500);
+        fighter.animate({height: 175, width: 155}, 1000);
+        // remove smash ball from window.dancers, and body
+        var target = window.dancers[i].$node;
+        setTimeout(function() {target.remove('.blinky');}, 2100);
+        window.dancers.splice(i, 1);
+        // animate character gets bigger
+      }
+    }
+    var targetIndex = [];
+
+    for (var i = 0; i < window.dancers.length; i++) {
+      if (window.dancers[i].$node.hasClass('kirby') || window.dancers[i].$node.hasClass('pika')) {
+        // get position of nearest opponent
+        var positions = window.dancers[i].$node.attr('style').split(': ');
+        var top = positions[1].split('.');
+        var topPosition = top[0];
+        var bottom = positions[2].split('.');
+        var bottomPosition = bottom[0];
+        // animate moving there
+        fighter.animate({top: topPosition, left: bottomPosition}, 500);
+        // remove smash ball from window.dancers, and body
+        window.dancers[i].$node.animate({top: -200}, 500);
+        targetIndex.push(i);
+      }
+    }
+    for (var i = 0; i < targetIndex.length; i++) {
+      window.dancers.splice(i, 1);
+    }
+
+
+
+
+    window.dancers.push(dancer);
+  });
 });
 

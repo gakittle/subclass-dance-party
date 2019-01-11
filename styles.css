@@ -73,3 +73,14 @@ body, a:link, a:visited, a:active{
   margin-top: -150px;
   margin-left: -145px;
 }
+
+.characterButton, .choices{
+  float: left;
+  padding: 0 20px;
+}
+
+.fighter{
+  top: -200px;
+  left: -200px;
+  
+}

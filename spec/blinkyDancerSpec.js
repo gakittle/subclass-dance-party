@@ -32,3 +32,51 @@ describe('blinkyDancer', function() {
     });
   });
 });
+
+describe('kirbyDancer', function() {
+
+  var kirbyDancer, clock;
+  var timeBetweenSteps = 100;
+
+  beforeEach(function() {
+    clock = sinon.useFakeTimers();
+    kirbyDancer = new makeKirbyDancer(10, 20, timeBetweenSteps);
+  });
+
+  it('should have a jQuery $node object', function() {
+    expect(kirbyDancer.$node).to.be.an.instanceof(jQuery);
+  });
+
+  it('should have a class \'kirby\' on each dancer', function() {
+    expect(kirbyDancer.$node.hasClass('kirby')).to.equal(true);
+  });
+
+  it('should call Dancer function during construction of each new dancer', function() {
+    expect(kirbyDancer.dancerCalled).to.equal(true);
+  });
+
+});
+
+describe('pikaDancer', function() {
+
+  var pikaDancer, clock;
+  var timeBetweenSteps = 100;
+
+  beforeEach(function() {
+    clock = sinon.useFakeTimers();
+    pikaDancer = new makePikaDancer(10, 20, timeBetweenSteps);
+  });
+
+  it('should have a jQuery $node object', function() {
+    expect(pikaDancer.$node).to.be.an.instanceof(jQuery);
+  });
+
+  it('should have a class \'pika\' on each dancer', function() {
+    expect(pikaDancer.$node.hasClass('pika')).to.equal(true);
+  });
+
+  it('should call Dancer function during construction of each new dancer', function() {
+    expect(pikaDancer.dancerCalled).to.equal(true);
+  });
+
+});

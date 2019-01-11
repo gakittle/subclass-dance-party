@@ -3,6 +3,7 @@ var Dancer = function(top, left, timeBetweenSteps, dancerClass) {
   this.time = timeBetweenSteps;
   this.$node = $('<span class="dancer"></span>');
   this.$node.addClass(dancerClass);
+  this.dancerCalled = true;
 
   Dancer.prototype.step.call(this, this.time);
   this.setPosition(top, left);

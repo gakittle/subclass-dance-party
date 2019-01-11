@@ -1,4 +1,5 @@
 var makePikaDancer = function(top, left, timeBetweenSteps) {
+  this.dancerCalled = false;
   Dancer.call(this, ...arguments, 'pika');
 };
 

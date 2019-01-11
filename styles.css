@@ -43,3 +43,33 @@ body, a:link, a:visited, a:active{
 }
 
 @-webkit-keyframes spin { 100% { -webkit-transform: rotate(360deg); } }
+
+.pika{
+  position: absolute;
+  content: url(img/Pikachu.png);
+  height: 130px;
+  width: 95px;
+  -webkit-animation: anim 1s infinite ease;
+  animation: anim 1s infinite ease;
+}
+
+@-webkit-keyframes anim {
+  from {-webkit-transform: rotateY(0deg);}
+  to {-webkit-transform: rotateY(360deg);}
+}
+
+@keyframes anim {
+  from {transform: rotateY(0deg);}
+  to {transform: rotateY(360deg);}
+}
+
+.pika:hover{
+  -webkit-animation-play-state: paused;
+  animation-play-state: paused;
+  position: relative;
+  content: url(img/electricity.png);
+  height: 400px;
+  width: 400px;
+  margin-top: -150px;
+  margin-left: -145px;
+}
